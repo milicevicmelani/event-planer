@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">event planner</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_events">events</string>
+    <string name="text_new_event">new event</string>
+    <string name="text_plan_event">plan event</string>
+    <string name="text_home">home</string>
+    <string name="text_event_name">Event Name</string>
+    <string name="text_host">Host</string>
+    <string name="text_date">Date</string>
+    <string name="text_time">Time</string>
+    <string name="text_location">Location</string>
+    <string name="text_guest_name">Guest Name</string>
+    <string name="image_todo">TO DO</string>
+    <string name="image_add">ADD</string>
+    <string name="image_location">LOCATION</string>
+    <string name="image_edit">EDIT</string>
+    <string name="image_checklist">TO DO CHECKLIST</string>
+    <string name="image_guestlist">GUESTLIST</string>
+    <string name="image_delete">DELETE</string>
+</resources>

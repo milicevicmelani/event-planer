@@ -2,10 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/planEventFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlanEventFragment"
-    android:background="@color/purple_200">
+    android:background="@color/background"
+    tools:context=".PlanEventFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,22 +16,21 @@
             android:id="@+id/buttonHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_home"
             android:textColor="@color/white"
             android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/buttonNewEvent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonEventsList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/buttonNewEvent"
+            android:id="@+id/buttonEventsList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginBottom="60dp"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_events"
             android:textColor="@color/white"
             android:typeface="monospace"
@@ -40,17 +40,17 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/textViewEventName"
+            android:id="@+id/EventName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_shape"
+            android:labelFor="@id/editTextEventName"
             android:text="@string/text_new_event"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:labelFor="@id/editTextEventName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -61,32 +61,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="64dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="32dp"
             android:autofillHints="event name"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:text="@string/text_event_name"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEventName"
+            app:layout_constraintTop_toBottomOf="@+id/EventName"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <EditText
             android:id="@+id/editTextHost"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="64dp"
             android:autofillHints="name"
             android:ems="10"
             android:inputType="textPersonName"
+            android:labelFor="@id/editTextHost"
             android:minHeight="48dp"
             android:text="@string/text_host"
-            android:labelFor="@id/editTextHost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/editTextEventName"
+            app:layout_constraintStart_toStartOf="@+id/editTextEventName"
             app:layout_constraintTop_toBottomOf="@+id/editTextEventName"
             tools:ignore="TextContrastCheck" />
 
@@ -94,15 +95,14 @@
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="64dp"
             android:autofillHints="startDate"
             android:ems="10"
             android:inputType="date"
             android:minHeight="48dp"
             android:text="@string/text_date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/editTextHost"
+            app:layout_constraintStart_toStartOf="@+id/editTextHost"
             app:layout_constraintTop_toBottomOf="@+id/editTextHost"
             tools:ignore="TextContrastCheck" />
 
@@ -110,29 +110,28 @@
             android:id="@+id/editTextTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="64dp"
             android:autofillHints="startTime"
             android:inputType="time"
             android:minHeight="48dp"
             android:text="@string/text_time"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/editTextDate"
+            app:layout_constraintStart_toStartOf="@+id/editTextDate"
             app:layout_constraintTop_toBottomOf="@+id/editTextDate"
             tools:ignore="TextContrastCheck" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+        <ImageButton
+            android:id="@+id/imageButtonAdd"
+            android:layout_width="60dp"
+            android:layout_height="57dp"
             android:layout_marginTop="16dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/image_add"
             android:src="@drawable/ic_baseline_add_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-            tools:ignore="ImageContrastCheck"
-            android:contentDescription="@string/image_add" />
+            tools:ignore="ImageContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

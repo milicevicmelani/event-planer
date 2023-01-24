@@ -5,7 +5,7 @@
     android:id="@+id/homeFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@color/background"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,21 +37,21 @@
             android:id="@+id/buttonEvents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_events"
             android:textColor="@color/white"
             android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/buttonNewEvent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonEventsList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/buttonNewEvent"
+            android:id="@+id/buttonEventsList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_plan_event"
             android:textColor="@color/white"
             android:typeface="monospace"

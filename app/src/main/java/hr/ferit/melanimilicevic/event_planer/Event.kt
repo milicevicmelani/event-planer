@@ -1,3 +1,16 @@
 package hr.ferit.melanimilicevic.event_planer
 
-data class Event()
+import android.location.Address
+import java.sql.Date
+import java.sql.Time
+
+data class Event(
+    var id: String="",
+    var name: String?=null,
+    var host: String?=null,
+    var place: Address?=null,
+    var date: String?=null,
+    var time: String?=null,
+    var guestList: List<String>?=null,
+    var checkList: List<String>?=null
+)

@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.homeFrame, homeFragment)
+        fragmentTransaction.add(R.id.mainFrame, homeFragment)
         fragmentTransaction.commit()
     }
 }

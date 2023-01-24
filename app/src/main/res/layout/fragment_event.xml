@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EventFragment"
-    android:background="@color/purple_200">
+    android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,22 +15,22 @@
             android:id="@+id/buttonHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_home"
             android:textColor="@color/white"
             android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/buttonNewEvent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonEventsList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/buttonNewEvent"
+            android:id="@+id/buttonEventsList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/txtBackground"
             android:text="@string/text_plan_event"
             android:textColor="@color/white"
             android:typeface="monospace"
@@ -62,7 +62,7 @@
             android:layout_marginStart="100dp"
             android:background="@drawable/oval_shape"
             android:contentDescription="@string/image_checklist"
-            android:src="@drawable/ic_baseline_fact_check_24"
+            android:src="@drawable/ic_baseline_checklist_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonGuestlist"
             tools:ignore="ImageContrastCheck" />
@@ -71,7 +71,7 @@
             android:id="@+id/imageButtonGuestlist"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/oval_shape"
             android:contentDescription="@string/image_guestlist"
             android:src="@drawable/ic_baseline_person_24"
@@ -109,7 +109,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="92dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
                 android:textSize="34sp" />
 
             <TextView
-                android:id="@+id/textViewPlace"
+                android:id="@+id/EventPlace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_location"

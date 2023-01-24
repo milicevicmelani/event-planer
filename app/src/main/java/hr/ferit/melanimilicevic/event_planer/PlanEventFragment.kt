@@ -1,59 +1,98 @@
 package hr.ferit.melanimilicevic.event_planer
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PlanEventFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PlanEventFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private val db = Firebase.firestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plan_event, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_plan_event, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PlanEventFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PlanEventFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val buttonHome=view.findViewById<Button>(R.id.buttonHome)
+        val buttonEvents=view.findViewById<Button>(R.id.buttonEventsList)
+
+        val homeFragment = HomeFragment()
+        val eventsListFragment = EventsListFragment()
+
+
+        buttonHome.setOnClickListener{
+            val fragmentTransaction: FragmentTransaction? =
+                activity?.supportFragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.planEventFrame, homeFragment)
+            fragmentTransaction?.commit()
+        }
+
+        buttonEvents.setOnClickListener{
+            val fragmentTransaction: FragmentTransaction? =
+                activity?.supportFragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.planEventFrame, eventsListFragment)
+            fragmentTransaction?.commit()
+        }
+
+        val editName = view.findViewById<EditText>(R.id.editTextEventName)
+        val editHost = view.findViewById<EditText>(R.id.editTextHost)
+        val editDate = view.findViewById<EditText>(R.id.editTextDate)
+        val editTime = view.findViewById<EditText>(R.id.editTextTime)
+        val buttonAdd = view.findViewById<ImageButton>(R.id.imageButtonAdd)
+
+
+        editDate.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+
+            val datePickerDialog = DatePickerDialog(
+                requireContext(), object :DatePickerDialog.OnDateSetListener {
+                    override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+                        val setDate= (day.toString() + "-" + (month + 1) + "-" + year)
+                        editDate.setText(setDate)
+                    }
+                },
+                year,
+                month,
+                day
+            )
+            datePickerDialog.show()
+        }
+
+        editTime.setOnClickListener{
+            val mcurrentTime = Calendar.getInstance()
+            val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
+            val minute = mcurrentTime.get(Calendar.MINUTE)
+
+           val timePickerDialog = TimePickerDialog(context, object : TimePickerDialog.OnTimeSetListener {
+                override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+                    val setTime = ("$hour:$minute")
+                    editTime.setText(setTime)
                 }
-            }
-    }
+            },
+                hour,
+                minute, false
+            )
+            timePickerDialog.show()
+        }
+
+
+        buttonAdd.setOnClickListener{
+            val eventToAdd = Event(name = editName.text.toString(), host = editHost.text.toString(),
+            date = editDate.text.toString(),time=editTime.text.toString())
+            db.collection("Event").add(eventToAdd)
+        }
+        return view
+}
 }

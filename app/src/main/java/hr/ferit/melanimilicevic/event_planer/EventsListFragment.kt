@@ -17,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 class EventsListFragment : Fragment(R.layout.fragment_events_list),
 EventRecyclerAdapter.ContentListener {
     private val db=Firebase.firestore
-
+    private lateinit var adapter: EventRecyclerAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,6 +25,10 @@ EventRecyclerAdapter.ContentListener {
         val view = inflater.inflate(R.layout.fragment_events_list, container, false)
 
         val recyclerView =view.findViewById<RecyclerView>(R.id.recyclerViewEvents)
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = EventRecyclerAdapter(java.util.ArrayList(),this@EventsListFragment)
+        }
 
         db.collection("Event")
             .get()
@@ -68,27 +72,22 @@ EventRecyclerAdapter.ContentListener {
         return view
     }
 
-    override fun onItemButtonCLick(index: Int, event: Event, clickType: ItemClickType) {
-        if (clickType == ItemClickType.EDIT) {
-            db.collection("Event")
-                .document(event.id)
-                .set(event)
-        }
-    }
 
-    /*override fun onItemButtonCLick(index: Int, event: Event, clickType: ItemClickType) {
+    override fun onItemButtonCLick(index: Int, event: Event, clickType: ItemClickType) {
+        val eventFragment = EventFragment()
         if (clickType == ItemClickType.EDIT) {
-            db.collection("Event")
-                .document(event.id)
-                .set(event)
+            val fragmentTransaction: FragmentTransaction? =
+                activity?.supportFragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.eventsListFrame, eventFragment)
+            fragmentTransaction?.commit()
         }
         else if (clickType == ItemClickType.REMOVE) {
-            EventRecyclerAdapter(removeItem(index)
+            adapter.removeItem(index)
             db.collection("Event")
                 .document(event.id)
                 .delete()
         }
-    }*/
+    }
 }
 
 

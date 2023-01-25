@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "86330509941",
+    "project_id": "event-planner-abe03",
+    "storage_bucket": "event-planner-abe03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86330509941:android:c546c2704b378c63e3c63c",
+        "android_client_info": {
+          "package_name": "hr.ferit.melanimilicevic.event_planer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86330509941-jcemehn36tuuruvpp5i5inb6nt92o568.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8YK6Q5eFCsiYzYquPFiX8EWaRLTDv6Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86330509941-jcemehn36tuuruvpp5i5inb6nt92o568.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

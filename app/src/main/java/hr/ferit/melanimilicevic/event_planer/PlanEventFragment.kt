@@ -92,6 +92,11 @@ class PlanEventFragment : Fragment() {
             val eventToAdd = Event(name = editName.text.toString(), host = editHost.text.toString(),
             date = editDate.text.toString(),time=editTime.text.toString())
             db.collection("Event").add(eventToAdd)
+
+            val fragmentTransaction: FragmentTransaction? =
+                activity?.supportFragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.planEventFrame, eventsListFragment)
+            fragmentTransaction?.commit()
         }
         return view
 }

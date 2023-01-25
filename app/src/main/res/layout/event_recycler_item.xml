@@ -15,7 +15,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonTest"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,14 +36,14 @@
         android:layout_height="48dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/image_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/EventPlace"
+        app:layout_constraintBottom_toBottomOf="@+id/EventDateTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/EventName"
         app:srcCompat="@drawable/ic_baseline_delete_24"
         tools:ignore="ImageContrastCheck" />
 
     <TextView
-        android:id="@+id/EventPlace"
+        android:id="@+id/EventDateTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/textview"
@@ -54,16 +54,15 @@
         app:layout_constraintTop_toBottomOf="@+id/EventHost" />
 
     <ImageButton
-        android:id="@+id/imageButtonTest"
+        android:id="@+id/imageButtonEdit"
         android:layout_width="48dp"
-        android:layout_height="0dp"
+        android:layout_height="48dp"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/image_edit"
         app:layout_constraintBottom_toBottomOf="@+id/imageButtonDelete"
         app:layout_constraintEnd_toStartOf="@+id/imageButtonDelete"
         app:layout_constraintTop_toTopOf="@+id/imageButtonDelete"
-        app:srcCompat="@drawable/oval_shape"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_edit_white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

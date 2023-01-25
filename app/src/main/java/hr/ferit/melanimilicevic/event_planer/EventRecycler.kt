@@ -51,12 +51,12 @@ class EventRecyclerAdapter (
             itemView.findViewById(R.id.EventName)
         private val eventHost: TextView =
             itemView.findViewById(R.id.EventHost)
-        private val eventPlace: TextView =
-            itemView.findViewById(R.id.EventPlace)
+        private val eventDateTime: TextView =
+            itemView.findViewById(R.id.EventDateTime)
         private  val deleteButton : ImageButton =
             itemView.findViewById(R.id.imageButtonDelete)
-        private val testButton : ImageButton =
-            itemView.findViewById(R.id.imageButtonTest)
+        private val editButton : ImageButton =
+            itemView.findViewById(R.id.imageButtonEdit)
 
         fun bind(
             index: Int,
@@ -65,10 +65,10 @@ class EventRecyclerAdapter (
         ) {
             eventName.text = event.name
             eventHost.text = event.host
-            eventPlace.text = event.place.toString()
+            eventDateTime.text = (event.date + ", " + event.time)
 
 
-            testButton.setOnClickListener{
+            editButton.setOnClickListener{
                 listener.onItemButtonCLick(index,event,ItemClickType.EDIT)
             }
 

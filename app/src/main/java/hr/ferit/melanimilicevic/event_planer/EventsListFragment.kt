@@ -18,6 +18,7 @@ class EventsListFragment : Fragment(R.layout.fragment_events_list),
 EventRecyclerAdapter.ContentListener {
     private val db=Firebase.firestore
     private lateinit var adapter: EventRecyclerAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +42,7 @@ EventRecyclerAdapter.ContentListener {
                         eventList.add(event)
                     }
                 }
+                adapter=EventRecyclerAdapter(eventList,this@EventsListFragment)
                 recyclerView.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = EventRecyclerAdapter(eventList,this@EventsListFragment)
@@ -75,7 +77,12 @@ EventRecyclerAdapter.ContentListener {
 
     override fun onItemButtonCLick(index: Int, event: Event, clickType: ItemClickType) {
         val eventFragment = EventFragment()
-        if (clickType == ItemClickType.EDIT) {
+        val bundle = Bundle()
+        bundle.putString("eventID", event.id)
+        eventFragment.arguments = bundle
+
+        eventFragment.arguments = bundle
+        if (clickType == ItemClickType.MORE) {
             val fragmentTransaction: FragmentTransaction? =
                 activity?.supportFragmentManager?.beginTransaction()
             fragmentTransaction?.replace(R.id.eventsListFrame, eventFragment)
@@ -83,9 +90,11 @@ EventRecyclerAdapter.ContentListener {
         }
         else if (clickType == ItemClickType.REMOVE) {
             adapter.removeItem(index)
-            db.collection("Event")
-                .document(event.id)
-                .delete()
+            event.id?.let {
+                db.collection("Event")
+                    .document(it)
+                    .delete()
+            }
         }
     }
 }

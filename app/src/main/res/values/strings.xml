@@ -10,13 +10,14 @@
     <string name="text_date">Date</string>
     <string name="text_time">Time</string>
     <string name="text_location">Location</string>
-    <string name="text_guest_name">Guest Name</string>
     <string name="image_todo">TO DO</string>
     <string name="image_add">ADD</string>
     <string name="image_location">LOCATION</string>
     <string name="image_edit">EDIT</string>
-    <string name="image_checklist">TO DO CHECKLIST</string>
-    <string name="image_guestlist">GUESTLIST</string>
+    <string name="text_guest">Guests:</string>
     <string name="image_delete">DELETE</string>
+    <string name="image_dateTime">DATETIME</string>
     <string name="textview">TextView</string>
+    <string name="button_increase">+</string>
+    <string name="button_decrease">-</string>
 </resources>

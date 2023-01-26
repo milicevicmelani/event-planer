@@ -11,6 +11,5 @@ data class Event(
     var place: String?=null,
     var date: String?=null,
     var time: String?=null,
-    var guestList: List<String>?=null,
-    var checkList: List<String>?=null
+    var description:String?=null
 )

@@ -12,36 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/buttonHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/txtBackground"
-            android:text="@string/text_home"
-            android:textColor="@color/white"
-            android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/buttonEventsList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonEditPlace"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="TextContrastCheck" />
-
-        <Button
-            android:id="@+id/buttonEventsList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:backgroundTint="@color/txtBackground"
-            android:text="@string/text_plan_event"
-            android:textColor="@color/white"
-            android:typeface="monospace"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="TextContrastCheck" />
-
         <TextView
             android:id="@+id/textViewEventTitle"
             android:layout_width="0dp"
@@ -59,45 +29,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextContrastCheck" />
 
-        <ImageButton
-            android:id="@+id/imageButtonChecklist"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:background="@drawable/oval_shape"
-            android:contentDescription="@string/image_checklist"
-            android:src="@drawable/ic_baseline_checklist_24"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonEditPlace"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAddress"
-            tools:ignore="ImageContrastCheck" />
-
-        <ImageButton
-            android:id="@+id/imageButtonGuestlist"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:background="@drawable/oval_shape"
-            android:contentDescription="@string/image_guestlist"
-            android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAddress"
-            tools:ignore="ImageContrastCheck" />
-
-        <ImageButton
-            android:id="@+id/imageButtonEditPlace"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:background="@drawable/oval_shape"
-            android:contentDescription="@string/image_location"
-            android:src="@drawable/ic_baseline_place_24"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonGuestlist"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAddress"
-            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textViewAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/text_location"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTime" />
 
@@ -105,10 +47,13 @@
             android:id="@+id/textViewDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="@string/text_date"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewEventTitle" />
 
@@ -119,10 +64,47 @@
             android:layout_weight="1"
             android:text="@string/text_time"
             android:textAlignment="center"
-            android:textSize="34sp"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/buttonEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/txtBackground"
+            android:text="@string/text_events"
+            android:textColor="@color/white"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPlanEvent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonPlanEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="@color/txtBackground"
+            android:text="@string/text_plan_event"
+            android:textColor="@color/white"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewHost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_host"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAddress" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

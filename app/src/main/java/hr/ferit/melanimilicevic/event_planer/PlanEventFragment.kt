@@ -46,6 +46,7 @@ class PlanEventFragment : Fragment() {
         val editHost = view.findViewById<EditText>(R.id.editTextHost)
         val editDate = view.findViewById<EditText>(R.id.editTextDate)
         val editTime = view.findViewById<EditText>(R.id.editTextTime)
+        val editLocation=view.findViewById<EditText>(R.id.editTextLocation)
         val buttonAdd = view.findViewById<ImageButton>(R.id.imageButtonAdd)
 
 
@@ -72,17 +73,17 @@ class PlanEventFragment : Fragment() {
 
         editTime.setOnClickListener{
             val mcurrentTime = Calendar.getInstance()
-            val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
-            val minute = mcurrentTime.get(Calendar.MINUTE)
+            val mhour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
+            val mminute = mcurrentTime.get(Calendar.MINUTE)
 
            val timePickerDialog = TimePickerDialog(context, object : TimePickerDialog.OnTimeSetListener {
                 override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-                    val setTime = ("$hour:$minute")
+                    val setTime = (hourOfDay.toString() + ":" + minute)
                     editTime.setText(setTime)
                 }
             },
-                hour,
-                minute, false
+                mhour,
+                mminute, true
             )
             timePickerDialog.show()
         }
@@ -90,7 +91,7 @@ class PlanEventFragment : Fragment() {
 
         buttonAdd.setOnClickListener{
             val eventToAdd = Event(name = editName.text.toString(), host = editHost.text.toString(),
-            date = editDate.text.toString(),time=editTime.text.toString())
+            date = editDate.text.toString(),time=editTime.text.toString(), place = editLocation.text.toString() )
             db.collection("Event").add(eventToAdd)
 
             val fragmentTransaction: FragmentTransaction? =

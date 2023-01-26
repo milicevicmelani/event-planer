@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 enum class  ItemClickType{
-    EDIT,
+    MORE,
     REMOVE
 }
 
@@ -55,8 +55,8 @@ class EventRecyclerAdapter (
             itemView.findViewById(R.id.EventDateTime)
         private  val deleteButton : ImageButton =
             itemView.findViewById(R.id.imageButtonDelete)
-        private val editButton : ImageButton =
-            itemView.findViewById(R.id.imageButtonEdit)
+        private val moreButton : ImageButton =
+            itemView.findViewById(R.id.imageButtonReadMore)
 
         fun bind(
             index: Int,
@@ -68,8 +68,8 @@ class EventRecyclerAdapter (
             eventDateTime.text = (event.date + ", " + event.time)
 
 
-            editButton.setOnClickListener{
-                listener.onItemButtonCLick(index,event,ItemClickType.EDIT)
+            moreButton.setOnClickListener{
+                listener.onItemButtonCLick(index,event,ItemClickType.MORE)
             }
 
             deleteButton.setOnClickListener {

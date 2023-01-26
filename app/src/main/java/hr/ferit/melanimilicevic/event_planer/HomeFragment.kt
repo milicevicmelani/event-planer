@@ -15,7 +15,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        val buttonEvents=view.findViewById<Button>(R.id.buttonEvents)
+        val buttonEvents=view.findViewById<Button>(R.id.buttonEvent)
         val buttonPlan=view.findViewById<Button>(R.id.buttonEventsList)
 
         val eventsListFragment = EventsListFragment()

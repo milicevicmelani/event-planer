@@ -16,20 +16,20 @@
             android:id="@+id/buttonHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
             android:backgroundTint="@color/txtBackground"
             android:text="@string/text_home"
             android:textColor="@color/white"
             android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/buttonEventsList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonAdd"
             tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/buttonEventsList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
             android:backgroundTint="@color/txtBackground"
             android:text="@string/text_events"
             android:textColor="@color/white"
@@ -37,6 +37,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonHome"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="TextContrastCheck" />
 
         <TextView
@@ -120,17 +122,29 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextDate"
             tools:ignore="TextContrastCheck" />
 
+        <EditText
+            android:id="@+id/editTextLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:text="@string/text_location"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTime"
+            app:layout_constraintStart_toStartOf="@+id/editTextTime"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
         <ImageButton
             android:id="@+id/imageButtonAdd"
             android:layout_width="76dp"
             android:layout_height="74dp"
-            android:layout_marginTop="16dp"
             android:background="#00FFFFFF"
             android:contentDescription="@string/image_add"
             android:src="@drawable/ic_baseline_add_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+            app:layout_constraintTop_toBottomOf="@+id/editTextLocation"
             tools:ignore="ImageContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

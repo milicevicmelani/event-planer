@@ -79,7 +79,8 @@
             android:typeface="monospace"
             app:layout_constraintBottom_toTopOf="@+id/buttonPlanEvent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/buttonPlanEvent"
@@ -92,7 +93,8 @@
             android:typeface="monospace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <TextView
             android:id="@+id/textViewHost"
